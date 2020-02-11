@@ -38,7 +38,7 @@ add2queue([Node|Cost], [[[QueueHead|HeadPath]|HeadCost]|Queue], PathCost, PathHi
 % move to next element
 add2queue(HChild,[H|T], PathCost, PathHistory, OldNode, [H|NewQueue]) :- add2queue(HChild,T, PathCost, PathHistory, OldNode, NewQueue). 
 % if queue empty just add
-add2queue([Node|Cost],[],PathCost,PathHistory,OldNode,[[[Node|NewPath]|NewCost]]) :- NewCost is PathCost + Cost, append(OldNode,PathHistory,NewPath).
+add2queue([Node|Cost],[],PathCost,PathHistory,OldNode,[[[Node|NewPath]|NewCost]]) :- NewCost is PathCost + Cost, append([OldNode],PathHistory,NewPath).
 % comparer
 less-than([_|Cost1],[[_|_]|Cost2]) :- Cost1 =< Cost2.
 
